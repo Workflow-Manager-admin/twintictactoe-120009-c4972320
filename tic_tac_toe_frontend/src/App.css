@@ -1,0 +1,171 @@
+/* Theme Variables for modern light minimal UI */
+:root {
+  --primary: #1976d2;
+  --secondary: #424242;
+  --accent: #fbc02d;
+  --accent-light: #fff7de;
+  --bg-primary: #fff;
+  --border-color: #e0e0e0;
+  --text-primary: #263238;
+  --text-secondary: #8197a9;
+  --board-bg: #f7f8fa;
+}
+
+/* App container for centering */
+.ttt-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.ttt-container {
+  margin: auto;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 12px 30px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgba(85, 102, 119, 0.06);
+  background: var(--bg-primary);
+}
+
+.ttt-title {
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* Status Display */
+.ttt-status {
+  margin: 0 0 16px 0;
+  font-size: 1.12rem;
+  color: var(--secondary);
+  text-align: center;
+  min-height: 32px;
+}
+.status-draw {
+  color: var(--secondary);
+  font-weight: 600;
+}
+.status-winner {
+  font-weight: 700;
+  font-size: 1.4em;
+}
+
+/* The Board */
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--board-bg);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(85, 100, 120, 0.07);
+  padding: 8px;
+}
+
+.ttt-board-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Individual Cells */
+.ttt-square {
+  width: 68px;
+  height: 68px;
+  margin: 0 4px 4px 0;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 11px;
+  font-size: 2.3rem;
+  font-family: inherit;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 68px;
+  font-weight: 500;
+  transition: background 0.2s, border 0.2s, color 0.2s, box-shadow 0.15s;
+  color: var(--primary);
+  outline: none;
+  box-shadow: none;
+}
+
+.ttt-square:last-child {
+  margin-right: 0;
+}
+.ttt-board-row:last-child .ttt-square {
+  margin-bottom: 0;
+}
+
+.ttt-square:focus:not([disabled]) {
+  outline: 2.5px solid var(--accent);
+}
+
+.ttt-square[disabled] {
+  cursor: default;
+  filter: grayscale(0.08);
+  opacity: 0.7;
+}
+
+/* Square hover effect for playable cell */
+.ttt-square:not(:disabled):hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.ttt-reset-btn {
+  width: 100%;
+  margin: 20px 0 0 0;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(20, 62, 130, 0.04);
+  letter-spacing: 0.04em;
+}
+.ttt-reset-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+/* Attribution */
+.ttt-attribution {
+  margin-top: 28px;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.ttt-attribution a {
+  color: var(--primary);
+  text-decoration: underline dotted;
+}
+
+@media (max-width: 480px) {
+  .ttt-container {
+    max-width: 99vw;
+    padding: 12px 0 30px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .ttt-board {
+    padding: 2px;
+    border-radius: 6px;
+  }
+  .ttt-square {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+  }
+}
